@@ -1,0 +1,40 @@
+@prefix : <http://erlangen-crm.org/efrbroo/> .
+@prefix spatrem :<https://spacesoftranslation.org/> .
+@prefix bmtn: <http://blaueberg.info/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix crm: <http://erlangen-crm.org/140220/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rel: <http://id.loc.gov/vocabulary/relators/> .
+@prefix dt: <http://www.w3.org/TR/owl-time#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema/> .
+@prefix pro: <http://schema/for/pressoo> .
+
+# The abstract work.  It does not have a title, but it
+# has a label for convenience.
+spatrem:001 a :F1_Work ;
+            rdfs:label "Louise" .
+
+# The Person referred to as "Somerset Maugham"
+spatrem:002 a crm:E21_Person ;
+            rdf:type skos:Concept ;
+            rdfs:label "Maugham, Somerset W."
+
+spatrem:foo a :F27_Work_Conception ;
+            crm:P14_carried_out_by spatrem:002 ;
+            crm:R16_initiated spatrem:001 .
+
+# The activity associating Maugham with 
+spatrem:003 a :F28_Expression_Creation ;
+	 :R19_created_a_realisation_of spatrem:001 ;
+	 crm:P14_carried_out_by spatrem:002 ;
+	 :R17_created spatrem:004 ;
+	 crm:P2_has_type spatrem:authoring_event.
+
+# Kierkegaard's realization of "Gedanken".
+spatrem:003 a :F22_Self_Contained_Expression ;
+	 :R3i_realises spatrem:001 .
+
+
